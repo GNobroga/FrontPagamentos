@@ -1,0 +1,13 @@
+<aside class="sidenav">
+  <img class="logo" src="assets/fintech.svg" alt="Fintech Logo">
+  <nav class="nav">
+    <ul class="nav-menu">
+      @for (menu of menus(); track menu) {
+        <li class="nav-menu-item">
+          <img [src]="menu.source" [alt]="menu.label">
+          <span>{{ menu.label }}</span>
+        </li>
+      }
+    </ul>
+  </nav>
+</aside>

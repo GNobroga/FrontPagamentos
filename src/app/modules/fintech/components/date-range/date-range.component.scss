@@ -1,0 +1,35 @@
+:host {
+  flex: 1;
+
+  .date-range {
+    background-color: var(--third);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    border-radius: 1rem;
+
+    .range {
+      flex: 1;
+      display: grid;
+      grid-template: 1fr / 1fr;
+      gap: 0.5rem;
+
+      span, [type=date] {
+        background-color: var(--first);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+      }
+
+      span {
+        font-weight: bold;
+      }
+
+      [type=date] {
+        width: 70%;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+      }
+    }
+  }
+}

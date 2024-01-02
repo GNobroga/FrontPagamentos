@@ -1,0 +1,16 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(50px, 320px) 1fr;
+  padding: 2rem;
+  gap: 2rem;
+  height: 100%;
+
+  section {
+
+    header {
+      display: flex;
+      gap: 1rem;
+    }
+
+  }
+}

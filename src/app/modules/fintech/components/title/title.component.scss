@@ -1,0 +1,11 @@
+:host {
+  flex: 1;
+
+  .title {
+    background-color: var(--second);
+    height: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
