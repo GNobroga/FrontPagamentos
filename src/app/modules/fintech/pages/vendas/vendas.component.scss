@@ -1,6 +1,13 @@
 :host {
   flex: 1;
 
+  .scroll {
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 60vh;
+    padding: 0 0.2rem;
+  }
+
   .vendas {
     display: flex;
     flex-direction: column;

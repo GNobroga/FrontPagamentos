@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import * as echarts from 'echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { FintechRoutingModule } from './fintech-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -29,7 +30,8 @@ import { StatusComponent } from './components/status/status.component';
   ],
   imports: [
     CommonModule,
-    FintechRoutingModule
+    FintechRoutingModule,
+    NgxEchartsModule.forRoot({ echarts }),
   ]
 })
 export default class FintechModule { }
