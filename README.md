@@ -1,5 +1,13 @@
 # FrontPagamentos
 
-Em construção
+(Em construção)
 
 ![Alt text](image.png)
+
+
+## Tecnologias usadas
+
+#### Angular
+
+#### Scss
+
