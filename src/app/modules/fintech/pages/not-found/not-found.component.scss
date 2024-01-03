@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  button {
+    margin-top: 1rem;
+    background-color: var(--second);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

@@ -4,7 +4,6 @@
 
 ![Alt text](image.png)
 
-
 ## Tecnologias usadas
 
 #### Angular

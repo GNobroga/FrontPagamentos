@@ -16,11 +16,11 @@ export class SidenavComponent {
   public menus = signal<Array<IMenu>>([
     {
       source: 'assets/icons/resumo.svg',
-      label: 'Resumo',
+      label: 'Resumo'
     },
     {
       source: 'assets/icons/vendas.svg',
-      label: 'Vendas',
+      label: 'Vendas'
     },
     {
       source: 'assets/icons/webhooks.svg',

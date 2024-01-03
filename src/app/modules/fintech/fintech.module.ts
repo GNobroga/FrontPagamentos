@@ -9,6 +9,7 @@ import { DateRangeComponent } from './components/date-range/date-range.component
 import { MonthsComponent } from './components/months/months.component';
 import { ResumoComponent } from './pages/resumo/resumo.component';
 import { VendasComponent } from './pages/vendas/vendas.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { VendasComponent } from './pages/vendas/vendas.component';
     DateRangeComponent,
     MonthsComponent,
     ResumoComponent,
-    VendasComponent
+    VendasComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,
