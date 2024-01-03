@@ -7,6 +7,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { TitleComponent } from './components/title/title.component';
 import { DateRangeComponent } from './components/date-range/date-range.component';
 import { MonthsComponent } from './components/months/months.component';
+import { ResumoComponent } from './pages/resumo/resumo.component';
+import { VendasComponent } from './pages/vendas/vendas.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { MonthsComponent } from './components/months/months.component';
     SidenavComponent,
     TitleComponent,
     DateRangeComponent,
-    MonthsComponent
+    MonthsComponent,
+    ResumoComponent,
+    VendasComponent
   ],
   imports: [
     CommonModule,
