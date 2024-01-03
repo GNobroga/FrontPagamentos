@@ -10,6 +10,7 @@ import { MonthsComponent } from './components/months/months.component';
 import { ResumoComponent } from './pages/resumo/resumo.component';
 import { VendasComponent } from './pages/vendas/vendas.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { VendaComponent } from './pages/venda/venda.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MonthsComponent,
     ResumoComponent,
     VendasComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    VendaComponent
   ],
   imports: [
     CommonModule,

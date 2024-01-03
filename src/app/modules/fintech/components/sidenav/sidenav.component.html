@@ -3,7 +3,7 @@
   <nav class="nav">
     <ul class="nav-menu">
       @for (menu of menus(); track menu) {
-        <li class="nav-menu-item" routerLink="/fintech/{{menu.label | lowercase }}">
+        <li class="nav-menu-item" routerLink="/fintech/{{menu.label | lowercase }}" routerLinkActive="active">
           <img [src]="menu.source" [alt]="menu.label">
           <span>{{ menu.label }}</span>
         </li>

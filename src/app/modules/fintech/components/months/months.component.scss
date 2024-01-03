@@ -1,6 +1,4 @@
 :host {
-  flex: 1;
-
   .months {
     display: flex;
     gap: 1rem;
@@ -13,6 +11,11 @@
       text-align: center;
       font-weight: bold;
       cursor: pointer;
+      transition: all 0.1s ease-in;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
   }
 }
