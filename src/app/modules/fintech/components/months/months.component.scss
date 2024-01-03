@@ -1,0 +1,18 @@
+:host {
+  flex: 1;
+
+  .months {
+    display: flex;
+    gap: 1rem;
+
+    li {
+      flex: 1;
+      background-color: var(--second);
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
