@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { EChartsOption } from 'echarts';
 
 @Component({
@@ -11,11 +11,11 @@ export class ResumoComponent implements OnInit {
 
   public options!: EChartsOption;
 
-  public paid = 100;
+  @Input({ required: true }) public paid!: number;
 
-  public processed = 100;
+  @Input({ required: true }) public processed!: number;
 
-  public failed = 100;
+  @Input({ required: true }) public failed!: number;
 
   public ngOnInit(): void {
     const xAxisData: string[] = ['Pago', 'Processando', 'Falha'];
