@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { VendasComponent } from './pages/vendas/vendas.component';
 import { ResumoComponent } from './pages/resumo/resumo.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { VendaComponent } from './pages/venda/venda.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
         path: 'vendas',
         component: VendasComponent,
       },
+      {
+        path: 'vendas/:id',
+        component: VendaComponent,
+      }
     ],
   },
   {
