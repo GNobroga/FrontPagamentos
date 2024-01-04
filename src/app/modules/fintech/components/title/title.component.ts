@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -8,4 +8,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class TitleComponent {
 
+  @Input({ required: true }) title = '';
 }

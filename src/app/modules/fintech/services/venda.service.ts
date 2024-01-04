@@ -4,10 +4,6 @@ import { catchError, shareReplay, tap, throwError } from "rxjs";
 import { environment } from "../../../../environments/environment";
 import IVenda from "../models/IVenda";
 
-interface IDateRange {
-  above?: string;
-  below?: string;
-}
 
 @Injectable({
   providedIn: 'root',
@@ -34,8 +30,8 @@ export class VendaService {
 
   public findByDateRange$ = signal<IVenda[]>([]);
 
-  public findByDateRange({ above, below }: IDateRange) {
-    return this.#httpClient.get<IVenda[]>(`${environment.apiUrl}/search?inicio=${above ?? below }&fim=${below ?? above}`)
+  public findByDateRange(inicio: string, fim: string) {
+    return this.#httpClient.get<IVenda[]>(`${environment.apiUrl}/search?inicio=${inicio}&fim=${fim}`)
       .pipe(shareReplay(), catchError((err) => {
         return throwError(() => new Error('A data inicio ou fim não é válida.'));
       }), tap(value => this.findByDateRange$.set(value)));

@@ -1,6 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, Input, OnInit, computed, effect, inject, signal } from '@angular/core';
 import { EChartsOption } from 'echarts';
 import { VendaService } from '../../services/venda.service';
+import { DataService } from '../../services/data.service';
+import IVenda from '../../models/IVenda';
+
+const getTotalByStatus = (targetStatus: 'pago' | 'processado' | 'falha', vendas: IVenda[]) => {
+  console.log(vendas)
+  return vendas.filter(({ status }) => status === targetStatus).reduce((total, curr) => total + curr.preco, 0);
+};
 
 @Component({
   selector: 'app-resumo',
@@ -12,17 +19,28 @@ export class ResumoComponent implements OnInit {
 
   #vendaService = inject(VendaService);
 
-  public vendas = this.#vendaService.findByDateRange$();
+  #dataService = inject(DataService);
 
-  public options!: EChartsOption;
+  public vendas = this.#vendaService.findByDateRange$;
 
-  public ngOnInit(): void {
-    const xAxisData: string[] = ['Pago', 'Processando', 'Falha'];
+  public totalPago = computed(() => getTotalByStatus('pago', this.vendas()));
 
-    this.options = {
+  public totalProcessado = computed(() => getTotalByStatus('processado', this.vendas()));
+
+  public totalFalha = computed(() => getTotalByStatus('falha', this.vendas()));
+
+  public totalVendas = computed(() => this.vendas().reduce((total, curr) => total + curr.preco, 0));
+
+  constructor() {
+    effect(() => {
+        this.#vendaService.findByDateRange(this.#dataService.inicio(), this.#dataService.fim()).subscribe();
+    });
+  }
+
+  public options = computed<EChartsOption>(() => ({
       tooltip: {},
       xAxis: {
-        data: xAxisData,
+        data: ['pago', 'processado', 'falha'],
         silent: false,
         splitLine: {
           show: false,
@@ -31,15 +49,15 @@ export class ResumoComponent implements OnInit {
       yAxis: {
         type: 'value',
         min: 0,
-        max: Math.max(1, 1, 1),
+        max: Math.max(this.totalPago(), this.totalProcessado(), this.totalFalha()),
       },
       series: [
         {
           name: 'Total',
           type: 'bar',
-          data: [1, 1, 1],
+          data: [this.totalPago(), this.totalProcessado(), this.totalFalha()],
           itemStyle: {
-            color: function({ name }) {
+            color: function({ name } ) {
               return name === 'Processando' ? '#014E8E' :
                 name === 'Falha' ? '#FD3657' : '#1DB113';
             }
@@ -49,8 +67,10 @@ export class ResumoComponent implements OnInit {
       ],
       animationEasing: 'elasticOut',
       animationDelayUpdate: idx => idx * 5,
-    };
-  }
+    }));
 
+  public ngOnInit(): void {
+    this.#vendaService.findByDateRange(this.#dataService.inicio(), this.#dataService.fim()).subscribe();
+  }
 
 }
