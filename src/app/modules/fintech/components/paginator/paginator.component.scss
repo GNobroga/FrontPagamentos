@@ -1,0 +1,27 @@
+:host {
+  .paginator {
+    display: flex;
+    gap: 1rem;
+    justify-content: start;
+
+    span {
+      background-color: var(--third);
+      padding: 0.2rem;
+      border-radius: 0.5rem;
+    }
+
+    button {
+      width: 150px;
+      padding: 0.2rem;
+      outline: none;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: var(--second);
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}

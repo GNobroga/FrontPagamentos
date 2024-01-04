@@ -1,6 +1,12 @@
 :host {
   flex: 1;
 
+  .scroll {
+    max-height: 55vh;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
   .resumo {
     height: 100%;
     display: flex;
