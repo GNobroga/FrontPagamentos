@@ -5,7 +5,7 @@
       <app-date-range/>
       <app-title [title]="pageName()"/>
     </header>
-    <app-months/>
+    <app-months (selectedMonth)="onSelectedMonth($event)"/>
     @defer {
       <router-outlet/>
     } @loading (minimum 0.8s) {

@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DoCheck, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, effect, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../services/data.service';
 
@@ -21,6 +21,15 @@ export class DateRangeComponent implements DoCheck {
     inicio: [this.#datePipe.transform(new Date(), 'yyyy-MM-dd'), Validators.required],
     fim: [this.#datePipe.transform(new Date(), 'yyyy-MM-dd'), Validators.required]
   });
+
+  constructor() {
+    effect(() => {
+      this.form.setValue({
+        inicio: this.#dataService.inicio(),
+        fim: this.#dataService.fim(),
+      })
+    })
+  }
 
   public ngDoCheck(): void {
       this.#dataService.fim.set(this.form.value.fim!);

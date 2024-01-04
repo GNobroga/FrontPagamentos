@@ -1,5 +1,5 @@
 <ul class="months">
   @for (month of selectMonths(); track month) {
-    <li (click)="onSelectedMonth(1)">{{ month.month }}</li>
+    <li (click)="onSelectedMonth(month.key)">{{ month.month }}</li>
   }
 </ul>
