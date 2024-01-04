@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, DoCheck, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -11,9 +12,11 @@ export class DateRangeComponent implements DoCheck {
 
   #formBuilder = inject(FormBuilder);
 
+  #datePipe = new DatePipe('en');
+
   public form = this.#formBuilder.group({
-    inicio: [new Date(), Validators.required],
-    fim: [new Date(), Validators.required]
+    inicio: [this.#datePipe.transform(new Date(), 'yyyy-MM-dd'), Validators.required],
+    fim: [this.#datePipe.transform(new Date(), 'yyyy-MM-dd'), Validators.required]
   });
 
   public ngDoCheck(): void {
