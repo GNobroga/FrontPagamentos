@@ -1,6 +1,6 @@
 <div class="scroll">
   <section class="resumo">
-    <app-status/>
+    <app-status [recebidos]="totalPago" [vendas]="totalVendas" [processado]="totalProcessado"/>
     <div class="chart">
       <div echarts [options]="options()"></div>
     </div>

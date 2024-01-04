@@ -5,7 +5,6 @@ import { DataService } from '../../services/data.service';
 import IVenda from '../../models/IVenda';
 
 const getTotalByStatus = (targetStatus: 'pago' | 'processado' | 'falha', vendas: IVenda[]) => {
-  console.log(vendas)
   return vendas.filter(({ status }) => status === targetStatus).reduce((total, curr) => total + curr.preco, 0);
 };
 
@@ -58,8 +57,8 @@ export class ResumoComponent implements OnInit {
           data: [this.totalPago(), this.totalProcessado(), this.totalFalha()],
           itemStyle: {
             color: function({ name } ) {
-              return name === 'Processando' ? '#014E8E' :
-                name === 'Falha' ? '#FD3657' : '#1DB113';
+              return name === 'processado' ? '#014E8E' :
+                name === 'falha' ? '#FD3657' : '#1DB113';
             }
           },
           animationDelay: idx => idx * 10,

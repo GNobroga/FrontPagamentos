@@ -2,7 +2,7 @@
   <ul class="vendas">
     @for (venda of vendas(); track venda.id)
     {
-      <li class="venda-item">
+      <li class="venda-item" routerLink="/fintech/vendas/1">
         <section>
           <h1>{{ venda.id }}</h1>
           <p>{{ venda.nome }}</p>

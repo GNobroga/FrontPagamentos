@@ -14,14 +14,17 @@ const routes: Routes = [
       {
         path: 'resumo',
         component: ResumoComponent,
+        title: 'Fintech | Resumo',
       },
       {
         path: 'vendas',
         component: VendasComponent,
+        title: 'Fintech | Vendas',
       },
       {
         path: 'vendas/:id',
         component: VendaComponent,
+        title: 'Fintech | Venda',
       }
     ],
   },

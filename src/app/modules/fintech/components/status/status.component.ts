@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Signal, signal } from '@angular/core';
 
 @Component({
   selector: 'app-status',
@@ -8,4 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class StatusComponent {
 
+  @Input({ required: true }) public vendas!: Signal<number>
+  @Input({ required: true }) public recebidos!: Signal<number>
+  @Input({ required: true }) public processado!: Signal<number>
 }
