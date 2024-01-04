@@ -14,6 +14,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { VendaComponent } from './pages/venda/venda.component';
 import { StatusComponent } from './components/status/status.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -34,6 +36,9 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     CommonModule,
     FintechRoutingModule,
     NgxEchartsModule.forRoot({ echarts }),
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export default class FintechModule { }

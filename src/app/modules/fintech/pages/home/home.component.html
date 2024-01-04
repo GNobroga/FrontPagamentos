@@ -6,6 +6,10 @@
       <app-title/>
     </header>
     <app-months/>
-    <router-outlet/>
+    @defer {
+      <router-outlet/>
+    } @loading (minimum 0.8s) {
+      <app-loading/>
+    }
   </section>
 </div>

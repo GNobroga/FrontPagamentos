@@ -8,6 +8,6 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'fintech',
+    redirectTo: 'fintech/resumo',
   }
 ];

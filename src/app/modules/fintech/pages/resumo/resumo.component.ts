@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { EChartsOption } from 'echarts';
+import { VendaService } from '../../services/venda.service';
 
 @Component({
   selector: 'app-resumo',
@@ -9,13 +10,11 @@ import { EChartsOption } from 'echarts';
 })
 export class ResumoComponent implements OnInit {
 
+  #vendaService = inject(VendaService);
+
+  public vendas = this.#vendaService.findByDateRange$();
+
   public options!: EChartsOption;
-
-  @Input({ required: true }) public paid!: number;
-
-  @Input({ required: true }) public processed!: number;
-
-  @Input({ required: true }) public failed!: number;
 
   public ngOnInit(): void {
     const xAxisData: string[] = ['Pago', 'Processando', 'Falha'];
@@ -32,13 +31,13 @@ export class ResumoComponent implements OnInit {
       yAxis: {
         type: 'value',
         min: 0,
-        max: Math.max(this.paid, this.processed, this.failed),
+        max: Math.max(1, 1, 1),
       },
       series: [
         {
           name: 'Total',
           type: 'bar',
-          data: [this.paid, this.processed, this.failed],
+          data: [1, 1, 1],
           itemStyle: {
             color: function({ name }) {
               return name === 'Processando' ? '#014E8E' :

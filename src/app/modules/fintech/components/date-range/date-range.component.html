@@ -1,10 +1,10 @@
-<section class="date-range shadow">
+<section class="date-range shadow" [formGroup]="form">
   <div class="range">
       <span>Início</span>
-      <input type="date" name="inicio">
+      <input type="date" name="inicio" formControlName="inicio">
   </div>
   <div class="range">
     <span>Final</span>
-    <input type="date" name="final">
+    <input type="date" name="fim" formControlName="fim">
 </div>
 </section>
