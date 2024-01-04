@@ -1,5 +1,7 @@
 <ul class="months">
   @for (month of selectMonths(); track month) {
-    <li (click)="onSelectedMonth(month.key)">{{ month.month }}</li>
+    <li (click)="onSelectedMonth(month.key)" [ngClass]="{ active: activatedMonth() === month.key }">{{ month.month }}</li>
   }
 </ul>
+
+

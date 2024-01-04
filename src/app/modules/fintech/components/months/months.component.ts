@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, Signal, effect, signal } from '@angular/core';
 
 const months = [
   'Janeiro',
@@ -27,6 +27,8 @@ export class MonthsComponent implements OnInit {
 
   public selectMonths = signal<{ month: string, key: number }[]>([]);
 
+  public activatedMonth = signal(new Date().getMonth());
+
   @Output() public selectedMonth = new EventEmitter<number>();
 
   public ngOnInit(): void {
@@ -48,6 +50,7 @@ export class MonthsComponent implements OnInit {
   }
 
   public onSelectedMonth(month: number) {
+    this.activatedMonth.set(month);
     this.selectedMonth.emit(month);
   }
 }

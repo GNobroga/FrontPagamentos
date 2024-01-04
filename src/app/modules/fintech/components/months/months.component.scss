@@ -13,9 +13,10 @@
       cursor: pointer;
       transition: all 0.1s ease-in;
 
-      &:hover {
+      &:hover, &.active {
         opacity: 0.6;
       }
+
     }
   }
 }
