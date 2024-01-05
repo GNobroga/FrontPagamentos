@@ -1,5 +1,5 @@
 <div class="paginator">
-  <button class="previous" (click)="previous()" [disabled]="currentPage() <= 1">Voltar</button>
+  <button class="previous shadow" (click)="previous()" [disabled]="currentPage() <= 1">Voltar</button>
   <span>{{ currentPage() }}</span>
-  <button class="next" (click)="next()" [disabled]="end">Próximo</button>
+  <button class="next shadow" (click)="next()" [disabled]="end">Próximo</button>
 </div>
