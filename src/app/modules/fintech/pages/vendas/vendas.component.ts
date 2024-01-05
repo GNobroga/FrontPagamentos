@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, effect, inject, signal, } from '@angular/core';
 import { VendaService } from '../../services/venda.service';
-import IVenda from '../../models/IVenda';
 
 @Component({
   selector: 'app-vendas',

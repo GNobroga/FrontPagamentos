@@ -1,9 +1,9 @@
 <div class="scroll">
   <ul class="venda">
-    <li>ID: <span class="venda-id">021232424234324234234fdsfds</span></li>
-    <li>Nome: Gabriel Cardoso Girarde</li>
-    <li>Preço: R$ 648,00</li>
-    <li>Status: processando</li>
-    <li>Pagamento: boleto</li>
+    <li>ID: <span class="venda-id">{{ venda()?.id }}</span></li>
+    <li>Nome: {{ venda()?.nome }}</li>
+    <li>Preço: {{ venda()?.preco | currency: 'BRL' }}</li>
+    <li>Status: {{ venda()?.status }}</li>
+    <li>Pagamento: {{ venda()?.pagamento }}</li>
   </ul>
 </div>

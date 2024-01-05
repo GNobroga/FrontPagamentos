@@ -7,7 +7,8 @@
     </header>
     <app-months (selectedMonth)="onSelectedMonth($event)"/>
     @defer {
-      <router-outlet/>
+      <router-outlet/>,
+
     } @loading (minimum 0.8s) {
       <app-loading/>
     }
