@@ -1,5 +1,6 @@
 :host {
   .home {
+
     display: grid;
     grid-template-columns: minmax(50px, 320px) 1fr;
     padding: 2rem;
@@ -14,5 +15,25 @@
         gap: 1rem;
       }
     }
+
+
+    @media only screen and (max-width: 80rem) {
+      & {
+        display: flex;
+        flex-direction: column;
+
+        section app-title {
+          display: none;
+        }
+      }
+    }
+
+
+    @media only screen and (max-width: 30rem) {
+      & {
+        padding: 1rem;
+      }
+    }
+
   }
 }

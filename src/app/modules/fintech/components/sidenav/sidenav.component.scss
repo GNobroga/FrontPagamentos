@@ -1,5 +1,5 @@
 :host {
-  height: 100%;
+
 
   .sidenav {
     background-color: var(--second);
@@ -9,9 +9,58 @@
     padding: 1.5rem;
     border-radius: 1rem;
     height: inherit;
+    position: relative;
 
     .logo {
       align-self: start;
+    }
+
+    .hidden {
+      position: absolute;
+      right: 0;
+      margin-right: 1rem;
+      background-image: url(/assets/icons/show.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      outline: none;
+      padding: 1rem;
+      background-color: transparent;
+      cursor: pointer;
+      transition: all 0.1s ease-in;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &.invisible {
+        background-image: url(/assets/icons/invisible.png);
+      }
+
+    }
+
+    .nav.disable {
+      animation: invisible 0.2s ease-in forwards;
+
+      @keyframes invisible {
+        0% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 0.75;
+        }
+        50% {
+          opacity: 0.50;
+        }
+        75% {
+          opacity: 0.25;
+        }
+        100% {
+          opacity: 0.0;
+          display: none;
+        }
+      }
     }
 
     .nav-menu {
@@ -44,6 +93,12 @@
           }
 
         }
+      }
+    }
+
+    @media only screen and (max-width: 30rem) {
+      .logo {
+        width: 100px;
       }
     }
 

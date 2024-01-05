@@ -1,6 +1,7 @@
 <aside class="sidenav">
   <img class="logo" src="assets/fintech.svg" alt="Fintech Logo">
-  <nav class="nav">
+  <button [ngClass]="{ invisible: !hidden }" class="hidden" (click)="hidden = !hidden"></button>
+  <nav class="nav" [class.disable]="hidden">
     <ul class="nav-menu">
       @for (menu of menus(); track menu) {
         <li class="nav-menu-item" routerLink="/fintech/{{menu.label | lowercase }}" routerLinkActive="active">

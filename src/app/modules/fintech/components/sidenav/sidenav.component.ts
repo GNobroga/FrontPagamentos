@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
 
 interface IMenu {
   label: string;
@@ -12,6 +12,8 @@ interface IMenu {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidenavComponent {
+
+  @Input() public hidden = false;
 
   public menus = signal<Array<IMenu>>([
     {

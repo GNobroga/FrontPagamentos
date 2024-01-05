@@ -3,6 +3,7 @@
   .status {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 
     .status-item {
       flex: 1;
